@@ -1,0 +1,10 @@
+---
+layout: page
+---
+
+{{ content }} 
+
+{% for event in site.events %}
+  <h2>{{ event.title }}</h2>
+  <p>{{ event.content | markdownify }}</p>
+{% endfor %}

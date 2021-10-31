@@ -1,0 +1,11 @@
+---
+layout: page
+---
+
+{{ content }} 
+
+{% for belt in site.belts %}
+  <img class="feat-img" src="{{ site.baseurl }}/assets/images/belts/{{ belt.image }}" alt="{{ include.alt | default: 'image representing a theme in this article' }}" />
+  <h2>{{ belt.title }}</h2>
+  <p>{{ belt.content | markdownify }}</p>
+{% endfor %}

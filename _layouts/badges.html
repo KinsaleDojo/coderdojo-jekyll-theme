@@ -1,0 +1,26 @@
+---
+layout: page
+---
+
+{{ content }} 
+
+{% assign groups = site.badges | group_by: "category" | sort: "order" %}
+<div class="tab">
+    {% for group in groups %}
+        <button class="tablinks" onclick="openCity(event, '{{ group.name }}')">{{ group.name }}</button>
+    {%endfor%}
+</div>
+{% for group in groups %}
+    <div id="{{ group.name }}" class="tabcontent">
+        <h2>{{ group.name }}</h2>
+        <ul class="section-list alignwide">
+            {% for item in group.items %}
+                <button id="{{item.title}}" onClick="user_button_click(this.id)" class="post-button">
+                    <img class="post-image" src="{{ site.baseurl }}/assets/images/badges/{{ item.image }}" />
+                    <h3 class="card-heading-center">{{item.title}}</h3>
+                </button>
+            {%endfor%}
+        </ul>
+    </div>
+{%endfor%}
+
